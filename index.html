@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Presente para Minha Namorada</title>
+  <!-- Link para Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Estilos do corpo */
+    body {
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      background-color: #ffe6e9;
+      color: #ff69b4;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    /* Título principal */
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      margin-top: 20px;
+      font-size: 3em;
+      color: #ff4081;
+    }
+
+    /* Texto inicial */
+    p {
+      font-size: 1.1em;
+      margin: 20px;
+      line-height: 1.6;
+      color: #ff6188;
+    }
+
+    /* Foto do casal */
+    #foto {
+      margin: 20px auto;
+      width: 80%;
+      max-width: 300px;
+      border-radius: 15px;
+      border: 3px solid #ff69b4;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Texto do contador */
+    #texto-tempo {
+      font-size: 1.3em;
+      font-weight: 600;
+      margin-top: 20px;
+      color: #ff4081;
+    }
+
+    /* Contador */
+    #contador {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin: 20px;
+      padding: 10px;
+    }
+
+    /* Blocos de tempo */
+    .tempo {
+      flex: 1 1 120px;
+      padding: 20px;
+      background: #fff0f5;
+      border: 2px solid #ff69b4;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      font-weight: 400;
+    }
+
+    .tempo span {
+      font-size: 24px;
+      font-weight: 600;
+      color: #ff4081;
+    }
+
+    /* Animação de corações caindo */
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: #ff69b4;
+      transform: rotate(45deg);
+      animation: fall 5s linear infinite;
+      opacity: 0.8;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: #ff69b4;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: 10px;
+      top: 0;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-100px) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+    /* Ajustes de responsividade */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.5em;
+      }
+
+      p {
+        font-size: 1em;
+      }
+
+      .tempo {
+        flex: 1 1 100px;
+      }
+
+      #foto {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Desde o Dia Especial 💖</h1>
+  <p>Vi, você é uma pessoa muito especial pra mim. Desde o dia que te conheci, meus dias vêm se tornando mais felizes. Eu te amo muitooo, minha princesa. 💕</p>
+  
+  <img id="foto" src="Foto_do_casal.jpg" alt="Foto do casal">
+
+  <div id="texto-tempo">Compartilhando momentos há:</div>
+
+  <div id="contador">
+    <div class="tempo">
+      <span id="anos">0</span>
+      Anos
+    </div>
+    <div class="tempo">
+      <span id="meses">0</span>
+      Meses
+    </div>
+    <div class="tempo">
+      <span id="dias">0</span>
+      Dias
+    </div>
+    <div class="tempo">
+      <span id="horas">0</span>
+      Horas
+    </div>
+    <div class="tempo">
+      <span id="minutos">0</span>
+      Minutos
+    </div>
+    <div class="tempo">
+      <span id="segundos">0</span>
+      Segundos
+    </div>
+  </div>
+
+  <script>
+    function calcularDiferenca() {
+      const dataInicial = new Date(2024, 10, 12); // 12 de novembro de 2024 (mês 10, pois começa em 0)
+      const agora = new Date();
+
+      // Calcula o tempo total em milissegundos
+      const diferenca = agora - dataInicial;
+
+      // Converte para unidades
+      const segundosTotais = Math.floor(diferenca / 1000);
+      const minutosTotais = Math.floor(segundosTotais / 60);
+      const horasTotais = Math.floor(minutosTotais / 60);
+      const diasTotais = Math.floor(horasTotais / 24);
+
+      // Calcula anos, meses e dias restantes
+      const anos = Math.floor(diasTotais / 365);
+      const meses = Math.floor((diasTotais % 365) / 30);
+      const dias = Math.floor((diasTotais % 365) % 30);
+
+      // Calcula horas, minutos e segundos restantes
+      const horas = horasTotais % 24;
+      const minutos = minutosTotais % 60;
+      const segundos = segundosTotais % 60;
+
+      // Atualiza o HTML
+      document.getElementById("anos").innerText = anos;
+      document.getElementById("meses").innerText = meses;
+      document.getElementById("dias").innerText = dias;
+      document.getElementById("horas").innerText = horas;
+      document.getElementById("minutos").innerText = minutos;
+      document.getElementById("segundos").innerText = segundos;
+    }
+
+    // Atualiza o contador a cada segundo
+    setInterval(calcularDiferenca, 1000);
+
+    // Função para criar corações caindo
+    function criarCoracoes() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+      document.body.appendChild(heart);
+
+      // Remove o coração após a animação
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    setInterval(criarCoracoes, 300);
+  </script>
+</body>
+</html>
