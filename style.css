@@ -1,0 +1,189 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Estilos do corpo */
+  body {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    background-color: #f3e5f5;
+    color: #7b1fa2;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  
+  /* Título principal */
+  h1 {
+    font-family: 'Dancing Script', cursive;
+    margin-top: 20px;
+    font-size: 3em;
+    color: #6a1b9a;
+    cursor: pointer; /* Adicionado para indicar que é clicável */
+  }
+  
+  /* Texto inicial */
+  p {
+    font-size: 1.1em;
+    margin: 20px;
+    line-height: 1.6;
+    color: #7e57c2;
+  }
+  
+  /* Container do carrossel */
+  .carrossel-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 300px;
+    border-radius: 15px;
+    border: 3px solid #7b1fa2;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Imagens no carrossel */
+  .carrossel-container img {
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 15px;
+  }
+  
+  /* Texto do contador */
+  #texto-tempo {
+    font-size: 1.3em;
+    font-weight: 600;
+    margin-top: 20px;
+    color: #6a1b9a;
+  }
+  
+  /* Contador */
+  #contador {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px;
+    padding: 10px;
+  }
+  
+  /* Blocos de tempo */
+  .tempo {
+    flex: 1 1 120px;
+    padding: 20px;
+    background: #ede7f6;
+    border: 2px solid #7b1fa2;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-weight: 400;
+  }
+  
+  .tempo span {
+    font-size: 24px;
+    font-weight: 600;
+    color: #6a1b9a;
+  }
+  
+  /* Animação de corações caindo */
+  .heart {
+    position: fixed;
+    top: -10px;
+    width: 20px;
+    height: 20px;
+    background-color: #7b1fa2;
+    transform: rotate(45deg);
+    animation: fall 5s linear infinite;
+    opacity: 0.8;
+    z-index: -1;
+  }
+  
+  .heart::before,
+  .heart::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #7b1fa2;
+    border-radius: 50%;
+  }
+  
+  .heart::before {
+    top: -10px;
+    left: 0;
+  }
+  
+  .heart::after {
+    left: 10px;
+    top: 0;
+  }
+  
+  @keyframes fall {
+    0% {
+      transform: translateY(-100px) rotate(45deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh) rotate(45deg);
+      opacity: 0;
+    }
+  }
+  
+  /* Estilo para a mensagem de "explosão" */
+  .explosao-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    text-align: center;
+    z-index: 1000;
+  }
+  
+  .explosao-container h2 {
+    font-size: 3em;
+    color: #e91e63;
+    margin-bottom: 10px;
+    animation: aparecer-desaparecer 3s ease-in-out;
+  }
+  
+  .explosao-container .coracao-grande {
+    font-size: 5em;
+    animation: pulsar 3s infinite;
+  }
+  
+  /* Animação para exibir e ocultar a mensagem */
+  @keyframes aparecer-desaparecer {
+    0% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+  }
+  
+  /* Animação de pulsação do coração */
+  @keyframes pulsar {
+    0%, 100% {
+      transform: scale(1);
+      color: #e91e63;
+    }
+    50% {
+      transform: scale(1.2);
+      color: #ff4081;
+    }
+  }
+  
