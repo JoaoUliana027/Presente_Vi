@@ -1,6 +1,6 @@
 // Função para calcular o tempo decorrido
 function calcularDiferenca() {
-    const dataInicial = new Date(2023, 10, 12); // 12 de novembro de 2023
+    const dataInicial = new Date(2024, 10, 12); // 12 de novembro de 2023
     const agora = new Date();
   
     const diferenca = agora - dataInicial;
