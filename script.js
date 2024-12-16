@@ -89,4 +89,4 @@ function calcularDiferenca() {
 }
 
 // Atualiza o contador a cada segundo
-setInterval(calcularD
+setInterval(calcularDiferenca, 1000);
