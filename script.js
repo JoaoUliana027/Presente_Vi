@@ -67,14 +67,13 @@ setInterval(calcularDiferenca, 1000);
 const playButton = document.getElementById('playButton');
 const audioPlayer = document.getElementById('audioPlayer');
 
-// Evento de clique no botão
-playButton.addEventListener('click', function() {
-  // Verifica se o áudio está pausado
+// Função para tocar a música
+document.getElementById('playButton').addEventListener('click', function() {
+  var audioPlayer = document.getElementById('audioPlayer');
   if (audioPlayer.paused) {
-    audioPlayer.play();  // Toca a música
-    playButton.textContent = "Pausar Música";  // Muda o texto do botão para "Pausar Música"
+    audioPlayer.play();
   } else {
-    audioPlayer.pause();  // Pausa a música
-    playButton.textContent = "Tocar Música";  // Muda o texto do botão para "Tocar Música"
+    audioPlayer.pause();
   }
 });
+
