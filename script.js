@@ -16,7 +16,7 @@ function updateTimer() {
 
 setInterval(updateTimer, 1000);
 
-// Navegação para página especial
+// Navegação para a página especial
 function goToSpecialPage() {
   window.location.href = 'fotos-especiais.html';
 }
