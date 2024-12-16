@@ -18,8 +18,8 @@
     body {
       font-family: 'Poppins', sans-serif;
       text-align: center;
-      background-color: #ffe6e9;
-      color: #ff69b4;
+      background-color: #f3e5f5;
+      color: #7b1fa2;
       margin: 0;
       padding: 0;
       overflow-x: hidden;
@@ -30,7 +30,7 @@
       font-family: 'Dancing Script', cursive;
       margin-top: 20px;
       font-size: 3em;
-      color: #ff4081;
+      color: #6a1b9a;
     }
 
     /* Texto inicial */
@@ -38,7 +38,7 @@
       font-size: 1.1em;
       margin: 20px;
       line-height: 1.6;
-      color: #ff6188;
+      color: #7e57c2;
     }
 
     /* Container do carrossel */
@@ -48,9 +48,9 @@
       scroll-snap-type: x mandatory;
       margin: 20px auto;
       width: 90%;
-      max-width: 400px;
+      max-width: 300px;
       border-radius: 15px;
-      border: 3px solid #ff69b4;
+      border: 3px solid #7b1fa2;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     }
 
@@ -69,7 +69,7 @@
       font-size: 1.3em;
       font-weight: 600;
       margin-top: 20px;
-      color: #ff4081;
+      color: #6a1b9a;
     }
 
     /* Contador */
@@ -86,8 +86,8 @@
     .tempo {
       flex: 1 1 120px;
       padding: 20px;
-      background: #fff0f5;
-      border: 2px solid #ff69b4;
+      background: #ede7f6;
+      border: 2px solid #7b1fa2;
       border-radius: 10px;
       text-align: center;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -97,18 +97,20 @@
     .tempo span {
       font-size: 24px;
       font-weight: 600;
-      color: #ff4081;
+      color: #6a1b9a;
     }
 
     /* Animação de corações caindo */
     .heart {
-      position: absolute;
+      position: fixed;
+      top: -10px;
       width: 20px;
       height: 20px;
-      background-color: #ff69b4;
+      background-color: #7b1fa2;
       transform: rotate(45deg);
       animation: fall 5s linear infinite;
       opacity: 0.8;
+      z-index: -1;
     }
 
     .heart::before,
@@ -117,7 +119,7 @@
       position: absolute;
       width: 20px;
       height: 20px;
-      background-color: #ff69b4;
+      background-color: #7b1fa2;
       border-radius: 50%;
     }
 
@@ -142,7 +144,7 @@
       }
     }
 
-    /* Ajustes de responsividade */
+    /* Responsividade */
     @media (max-width: 600px) {
       h1 {
         font-size: 2.5em;
@@ -163,8 +165,8 @@
   </style>
 </head>
 <body>
-  <h1>Desde o Dia Especial 💖</h1>
-  <p>Vi, você é uma pessoa muito especial pra mim. Desde o dia que te conheci, meus dias vêm se tornando mais felizes. Eu te amo muitooo, minha princesa. 💕</p>
+  <h1>Desde o Dia Especial 💜</h1>
+  <p>Mo, você é uma pessoa muito especial pra mim. Desde o dia que te conheci, meus dias vêm se tornando mais felizes. Eu te amo muitooo, minha princesa. 💜</p>
   
   <!-- Carrossel de fotos -->
   <div class="carrossel-container">
