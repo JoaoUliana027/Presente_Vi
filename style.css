@@ -127,7 +127,23 @@ p {
   color: #fff;
   font-weight: bold;
   text-align: center;
-  transition: all 0.5s ease-in-out;
+  animation: explodeAnimation 2s ease-in-out;
+}
+
+/* Animação de explosão */
+@keyframes explodeAnimation {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(2);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
 }
 
 .explosion-text.hidden {
@@ -136,4 +152,23 @@ p {
 
 .explosion-text.show {
   visibility: visible;
+}
+
+/* Animação para os corações caindo */
+.heart {
+  position: absolute;
+  font-size: 2em;
+  color: #ff4081;
+  animation: heartFall 3s ease-in forwards;
+}
+
+@keyframes heartFall {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(500px) scale(1.5);
+    opacity: 0;
+  }
 }

@@ -4,12 +4,14 @@ let musica = new Audio("musica/You-Are-So-Beautiful.mp3");
 function tocarMusica() {
   if (musica.paused) {
     musica.play();  // Toca a música
+    document.getElementById("play-button").innerText = "Pausar Música"; // Altera o texto do botão
   } else {
     musica.pause(); // Pausa a música
+    document.getElementById("play-button").innerText = "Play Música"; // Restaura o texto
   }
 }
 
-// Função para exibir a explosão
+// Função para exibir a explosão e os corações caindo
 function mostrarExplosao() {
   const explosion = document.getElementById("explosion");
   const explosionText = document.getElementById("explosion-text");
@@ -25,10 +27,39 @@ function mostrarExplosao() {
     explosionText.classList.add("hidden");
     explosionText.classList.remove("show");
   }, 3000);
+
+  // Função para gerar corações caindo
+  gerarCoracoes();
+}
+
+// Função para gerar corações caindo
+function gerarCoracoes() {
+  const container = document.body; // Podemos criar os corações no body
+  const numeroDeCoracoes = 10; // Quantidade de corações para cair
+
+  for (let i = 0; i < numeroDeCoracoes; i++) {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+
+    // Posiciona aleatoriamente o coração na tela
+    heart.style.left = Math.random() * 100 + "%";
+    heart.style.animationDuration = Math.random() * 2 + 2 + "s"; // Duração aleatória de animação
+
+    // Adiciona o coração à página
+    container.appendChild(heart);
+
+    // Remove o coração da tela após a animação
+    setTimeout(() => {
+      heart.remove();
+    }, 3000); // O tempo precisa ser o mesmo da animação
+  }
 }
 
 // Event listener para o clique no título
 document.querySelector("h1").addEventListener("click", mostrarExplosao);
+
+// Event listener para o botão de música
+document.getElementById("play-button").addEventListener("click", tocarMusica);
 
 // Função para calcular a diferença de tempo
 function calcularDiferenca() {
@@ -53,4 +84,9 @@ function calcularDiferenca() {
   document.getElementById("meses").innerText = meses;
   document.getElementById("dias").innerText = dias;
   document.getElementById("horas").innerText = horas;
-  document
+  document.getElementById("minutos").innerText = minutos;
+  document.getElementById("segundos").innerText = segundos;
+}
+
+// Atualiza o contador a cada segundo
+setInterval(calcularD
