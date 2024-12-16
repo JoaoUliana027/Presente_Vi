@@ -63,19 +63,18 @@ setInterval(calcularDiferenca, 1000);
   // Gera corações a cada 300ms
   setInterval(criarCoracoes, 300);
   
-// Adiciona evento de clique no botão
-document.getElementById('playButton').addEventListener('click', function() {
-  const videoContainer = document.getElementById('videoContainer');
-  const iframe = document.getElementById('youtubeVideo');
-  
-  if (videoContainer.style.display === "none") {
-    // Exibe o vídeo e inicia a reprodução
-    videoContainer.style.display = "block";
-    this.textContent = "Pausar Música"; // Altera o texto do botão
+// Obtém o botão e o player de áudio
+const playButton = document.getElementById('playButton');
+const audioPlayer = document.getElementById('audioPlayer');
+
+// Evento de clique no botão
+playButton.addEventListener('click', function() {
+  // Verifica se o áudio está pausado
+  if (audioPlayer.paused) {
+    audioPlayer.play();  // Toca a música
+    playButton.textContent = "Pausar Música";  // Muda o texto do botão para "Pausar Música"
   } else {
-    // Pausa o vídeo (o YouTube não tem um método direto para pausar, mas podemos esconder o vídeo)
-    iframe.src = iframe.src; // Isso irá parar o vídeo
-    videoContainer.style.display = "none"; // Esconde o vídeo
-    this.textContent = "Tocar Música"; // Restaura o texto original do botão
+    audioPlayer.pause();  // Pausa a música
+    playButton.textContent = "Tocar Música";  // Muda o texto do botão para "Tocar Música"
   }
 });
