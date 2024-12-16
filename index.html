@@ -8,8 +8,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Título clicável -->
-  <h1 id="titulo">Desde o Dia Especial 💜</h1>
+  <h1>Desde o Dia Especial 💜</h1>
   <p>Mo, você é uma pessoa muito especial pra mim. Desde o dia que te conheci, meus dias vêm se tornando mais felizes. Eu te amo muitooo, minha princesa. 💜</p>
 
   <!-- Carrossel de fotos -->
@@ -18,8 +17,8 @@
     <img src="Foto2.jpg" alt="Foto do casal 2">
   </div>
 
-  <!-- Contador de tempo -->
   <div id="texto-tempo">Tempo que estamos juntos:</div>
+
   <div id="contador">
     <div class="tempo">
       <span id="anos">0</span>
@@ -47,19 +46,13 @@
     </div>
   </div>
 
-  <!-- Mensagem de explosão -->
-  <div id="explosao" class="explosao-container">
-    <h2>Eu te amo!</h2>
-    <div class="coracao-grande">💜</div>
+  <!-- Botão para tocar a música -->
+  <div class="play-button-container">
+    <button id="playButton">Tocar Música</button>
+    <!-- Player de áudio escondido inicialmente -->
+    <audio id="audioPlayer" src="you-are-so-beautiful.mp3" preload="auto"></audio>
   </div>
 
   <script src="script.js"></script>
 </body>
 </html>
-
-<!-- Botão para tocar a música -->
-<div class="play-button-container">
-  <button id="playButton">Tocar Música</button>
-  <!-- Player de áudio escondido inicialmente -->
-  <audio id="audioPlayer" src="you-are-so-beautiful.mp3" preload="auto"></audio>
-</div>

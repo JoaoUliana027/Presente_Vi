@@ -1,234 +1,179 @@
 /* Reset básico */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Estilos do corpo */
-  body {
-    font-family: 'Poppins', sans-serif;
-    text-align: center;
-    background-color: #f3e5f5;
-    color: #7b1fa2;
-    overflow-x: hidden;
-  }
-  
-  /* Título principal */
-  h1 {
-    font-family: 'Dancing Script', cursive;
-    margin-top: 20px;
-    font-size: 3em;
-    color: #6a1b9a;
-    cursor: pointer;
-  }
-  
-  /* Texto inicial */
-  p {
-    font-size: 1.1em;
-    margin: 20px;
-    line-height: 1.6;
-    color: #7e57c2;
-  }
-  
-  /* Container do carrossel */
-  .carrossel-container {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    margin: 20px auto;
-    width: 90%;
-    max-width: 300px;
-    border-radius: 15px;
-    border: 3px solid #7b1fa2;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  }
-  
-  /* Imagens no carrossel */
-  .carrossel-container img {
-    flex: 0 0 100%;
-    scroll-snap-align: center;
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 15px;
-  }
-  
-  /* Texto do contador */
-  #texto-tempo {
-    font-size: 1.3em;
-    font-weight: 600;
-    margin-top: 20px;
-    color: #6a1b9a;
-  }
-  
-  /* Contador */
-  #contador {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin: 20px;
-    padding: 10px;
-  }
-  
-  /* Blocos de tempo */
-  .tempo {
-    flex: 1 1 120px;
-    padding: 20px;
-    background: #ede7f6;
-    border: 2px solid #7b1fa2;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    font-weight: 400;
-  }
-  
-  .tempo span {
-    font-size: 24px;
-    font-weight: 600;
-    color: #6a1b9a;
-  }
-  
-  /* Estilos para a explosão */
-#explosao {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    opacity: 0;
-    pointer-events: none;
-    z-index: 9999;
-    animation: explosao 3s forwards;
-  }
-  
-  #explosao h2 {
-    font-size: 4em; /* Tamanho maior para o texto */
-    color: #f50057;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    margin: 0;
-  }
-  
-  .coracao-grande {
-    font-size: 6em; /* Tamanho maior para o coração */
-    margin-top: 20px;
-  }
-  
-  @keyframes explosao {
-    0% {
-      transform: translate(-50%, -50%) scale(1);
-      opacity: 1;
-    }
-    50% {
-      transform: translate(-50%, -50%) scale(1.5);
-      opacity: 1;
-    }
-    100% {
-      transform: translate(-50%, -50%) scale(2);
-      opacity: 0;
-    }
-  }
-  
-  
-  /* Animação de aparecer e desaparecer */
-  @keyframes aparecer-desaparecer {
-    0% {
-      opacity: 0;
-      transform: scale(0.5);
-    }
-    50% {
-      opacity: 1;
-      transform: scale(1);
-    }
-    100% {
-      opacity: 0;
-      transform: scale(0.5);
-    }
-  }
-  
-  /* Animação de corações caindo */
-  .heart {
-    position: fixed;
-    top: -10px;
-    width: 20px;
-    height: 20px;
-    background-color: #7b1fa2;
-    transform: rotate(45deg);
-    animation: fall 5s linear infinite;
-    opacity: 0.8;
-    z-index: -1;
-  }
-  
-  .heart::before,
-  .heart::after {
-    content: "";
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: #7b1fa2;
-    border-radius: 50%;
-  }
-  
-  .heart::before {
-    top: -10px;
-    left: 0;
-  }
-  
-  .heart::after {
-    left: 10px;
-    top: 0;
-  }
-  
-  @keyframes fall {
-    0% {
-      transform: translateY(-100px) rotate(45deg);
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(100vh) rotate(45deg);
-      opacity: 0;
-    }
-  }
-  
-  /* Responsividade */
-  @media (max-width: 600px) {
-    h1 {
-      font-size: 2.5em;
-    }
-  
-    p {
-      font-size: 1em;
-    }
-  
-    .tempo {
-      flex: 1 1 100px;
-    }
-  
-    .carrossel-container {
-      width: 95%;
-    }
-  }
-  
-/* Estilos do botão */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos do corpo */
+body {
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  background-color: #f3e5f5;
+  color: #7b1fa2;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Título principal */
+h1 {
+  font-family: 'Dancing Script', cursive;
+  margin-top: 20px;
+  font-size: 3em;
+  color: #6a1b9a;
+  cursor: pointer;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Texto inicial */
+p {
+  font-size: 1.1em;
+  margin: 20px;
+  line-height: 1.6;
+  color: #7e57c2;
+}
+
+/* Container do carrossel */
+.carrossel-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 300px;
+  border-radius: 15px;
+  border: 3px solid #7b1fa2;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Imagens no carrossel */
+.carrossel-container img {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+/* Texto do contador */
+#texto-tempo {
+  font-size: 1.3em;
+  font-weight: 600;
+  margin-top: 20px;
+  color: #6a1b9a;
+}
+
+/* Contador */
+#contador {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px;
+  padding: 10px;
+}
+
+/* Blocos de tempo */
+.tempo {
+  flex: 1 1 120px;
+  padding: 20px;
+  background: #ede7f6;
+  border: 2px solid #7b1fa2;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-weight: 400;
+}
+
+.tempo span {
+  font-size: 24px;
+  font-weight: 600;
+  color: #6a1b9a;
+}
+
+/* Botão de música */
 .play-button-container {
   margin-top: 20px;
-  text-align: center;
 }
 
-#playButton {
+button {
   background-color: #7b1fa2;
   color: white;
+  padding: 10px 20px;
+  font-size: 1.1em;
   border: none;
-  padding: 15px 30px;
-  font-size: 1.2em;
+  border-radius: 5px;
   cursor: pointer;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s ease;
 }
 
-#playButton:hover {
+button:hover {
   background-color: #6a1b9a;
+}
+
+/* Efeito de explosão */
+#explosion {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+}
+
+#explosion h2 {
+  font-size: 3em;
+  color: white;
+  animation: explodeText 1.5s forwards;
+  z-index: 2000;
+}
+
+.heartExplosion {
+  width: 100px;
+  height: 100px;
+  background-color: #7b1fa2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -50px;
+  margin-top: -50px;
+  border-radius: 50%;
+  animation: explodeHeart 1.5s forwards;
+}
+
+@keyframes explodeText {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes explodeHeart {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 1;
+    top: 30%;
+    left: 30%;
+  }
+}
+
+.hidden {
+  display: none;
 }

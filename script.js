@@ -1,6 +1,5 @@
-// Função para calcular o tempo decorrido
+// Função para calcular a diferença de tempo
 function calcularDiferenca() {
-  // Definir data inicial como 12 de novembro de 2024 às 00:00:00
   const dataInicial = new Date(2024, 10, 12, 0, 0, 0); // 12 de novembro de 2024 às 00:00:00
   const agora = new Date();
 
@@ -18,6 +17,7 @@ function calcularDiferenca() {
   const minutos = minutosTotais % 60;
   const segundos = segundosTotais % 60;
 
+  // Atualiza os valores no HTML
   document.getElementById("anos").innerText = anos;
   document.getElementById("meses").innerText = meses;
   document.getElementById("dias").innerText = dias;
@@ -26,54 +26,56 @@ function calcularDiferenca() {
   document.getElementById("segundos").innerText = segundos;
 }
 
+// Atualiza o contador a cada segundo
 setInterval(calcularDiferenca, 1000);
 
-  
-  // Função para mostrar a explosão
-  function mostrarExplosao() {
-    const explosao = document.getElementById("explosao");
-    explosao.style.display = "block";
-  
-    // Adiciona animação de aparecer e desaparecer
-    explosao.style.animation = "aparecer-desaparecer 3s ease";
-  
-    // Oculta a explosão após 3 segundos
-    setTimeout(() => {
-      explosao.style.display = "none";
-      explosao.style.animation = ""; // Reseta a animação
-    }, 3000);
-  }
-  
-  // Evento de clique no título
-  document.getElementById("titulo").addEventListener("click", mostrarExplosao);
-  
-  // Função para criar corações animados
-  function criarCoracoes() {
-    const heart = document.createElement("div");
-    heart.classList.add("heart");
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = Math.random() * 2 + 3 + "s";
-    document.body.appendChild(heart);
-  
-    setTimeout(() => {
-      heart.remove();
-    }, 5000);
-  }
-  
-  // Gera corações a cada 300ms
-  setInterval(criarCoracoes, 300);
-  
-// Obtém o botão e o player de áudio
-const playButton = document.getElementById('playButton');
-const audioPlayer = document.getElementById('audioPlayer');
+// Função para criar a explosão de coração
+function criarCoracoes() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+  document.body.appendChild(heart);
 
-// Função para tocar a música
-document.getElementById('playButton').addEventListener('click', function() {
-  var audioPlayer = document.getElementById('audioPlayer');
-  if (audioPlayer.paused) {
-    audioPlayer.play();
+  setTimeout(() => {
+    heart.remove();
+  }, 5000);
+}
+
+// Cria corações caindo a cada 300ms
+setInterval(criarCoracoes, 300);
+
+// Função para mostrar o efeito de explosão
+function mostrarExplosao() {
+  const explosion = document.getElementById("explosion");
+  const explosionText = document.getElementById("explosion-text");
+
+  // Exibe a explosão
+  explosion.style.display = "flex";
+
+  // Efeito de animação
+  explosionText.classList.remove("hidden");
+
+  // Esconde a explosão após 3 segundos
+  setTimeout(() => {
+    explosion.style.display = "none";
+    explosionText.classList.add("hidden");
+  }, 3000);
+}
+
+// Função para tocar música
+let musica = new Audio("musica/You-Are-So-Beautiful.mp3");
+
+function tocarMusica() {
+  if (musica.paused) {
+    musica.play();
   } else {
-    audioPlayer.pause();
+    musica.pause();
   }
-});
+}
 
+// Adiciona o evento de clique no coração para a explosão
+document.querySelector("h1").addEventListener("click", mostrarExplosao);
+
+// Adiciona o evento de clique no botão de play para a música
+document.querySelector("#play-button").addEventListener("click", tocarMusica);
