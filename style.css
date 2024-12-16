@@ -11,8 +11,6 @@
     text-align: center;
     background-color: #f3e5f5;
     color: #7b1fa2;
-    margin: 0;
-    padding: 0;
     overflow-x: hidden;
   }
   
@@ -22,7 +20,7 @@
     margin-top: 20px;
     font-size: 3em;
     color: #6a1b9a;
-    cursor: pointer; /* Adicionado para indicar que é clicável */
+    cursor: pointer;
   }
   
   /* Texto inicial */
@@ -92,6 +90,42 @@
     color: #6a1b9a;
   }
   
+  /* Mensagem de explosão */
+  #explosao {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1000;
+    display: none;
+  }
+  
+  #explosao h2 {
+    font-size: 3em;
+    color: #e91e63;
+  }
+  
+  #explosao .coracao-grande {
+    font-size: 5em;
+  }
+  
+  /* Animação de aparecer e desaparecer */
+  @keyframes aparecer-desaparecer {
+    0% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+  }
+  
   /* Animação de corações caindo */
   .heart {
     position: fixed;
@@ -136,54 +170,22 @@
     }
   }
   
-  /* Estilo para a mensagem de "explosão" */
-  .explosao-container {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: none;
-    text-align: center;
-    z-index: 1000;
-  }
-  
-  .explosao-container h2 {
-    font-size: 3em;
-    color: #e91e63;
-    margin-bottom: 10px;
-    animation: aparecer-desaparecer 3s ease-in-out;
-  }
-  
-  .explosao-container .coracao-grande {
-    font-size: 5em;
-    animation: pulsar 3s infinite;
-  }
-  
-  /* Animação para exibir e ocultar a mensagem */
-  @keyframes aparecer-desaparecer {
-    0% {
-      opacity: 0;
-      transform: scale(0.5);
+  /* Responsividade */
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 2.5em;
     }
-    50% {
-      opacity: 1;
-      transform: scale(1);
-    }
-    100% {
-      opacity: 0;
-      transform: scale(0.5);
-    }
-  }
   
-  /* Animação de pulsação do coração */
-  @keyframes pulsar {
-    0%, 100% {
-      transform: scale(1);
-      color: #e91e63;
+    p {
+      font-size: 1em;
     }
-    50% {
-      transform: scale(1.2);
-      color: #ff4081;
+  
+    .tempo {
+      flex: 1 1 100px;
+    }
+  
+    .carrossel-container {
+      width: 95%;
     }
   }
   

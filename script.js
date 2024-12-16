@@ -1,5 +1,6 @@
+// Função para calcular o tempo decorrido
 function calcularDiferenca() {
-    const dataInicial = new Date(2024, 10, 12); // 12 de novembro de 2024
+    const dataInicial = new Date(2023, 10, 12); // 12 de novembro de 2023
     const agora = new Date();
   
     const diferenca = agora - dataInicial;
@@ -24,10 +25,40 @@ function calcularDiferenca() {
     document.getElementById("segundos").innerText = segundos;
   }
   
+  // Atualiza o contador a cada segundo
   setInterval(calcularDiferenca, 1000);
   
+  // Função para mostrar a explosão
+  function mostrarExplosao() {
+    const explosao = document.getElementById("explosao");
+    explosao.style.display = "block";
+  
+    // Adiciona animação de aparecer e desaparecer
+    explosao.style.animation = "aparecer-desaparecer 3s ease";
+  
+    // Oculta a explosão após 3 segundos
+    setTimeout(() => {
+      explosao.style.display = "none";
+      explosao.style.animation = ""; // Reseta a animação
+    }, 3000);
+  }
+  
+  // Evento de clique no título
+  document.getElementById("titulo").addEventListener("click", mostrarExplosao);
+  
+  // Função para criar corações animados
   function criarCoracoes() {
     const heart = document.createElement("div");
     heart.classList.add("heart");
     heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = Math.random() * 2 +
+    heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+    document.body.appendChild(heart);
+  
+    setTimeout(() => {
+      heart.remove();
+    }, 5000);
+  }
+  
+  // Gera corações a cada 300ms
+  setInterval(criarCoracoes, 300);
+  
