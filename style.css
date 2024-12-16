@@ -90,25 +90,47 @@
     color: #6a1b9a;
   }
   
-  /* Mensagem de explosão */
-  #explosao {
+  /* Estilos para a explosão */
+#explosao {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    z-index: 1000;
-    display: none;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 9999;
+    animation: explosao 3s forwards;
   }
   
   #explosao h2 {
-    font-size: 3em;
-    color: #e91e63;
+    font-size: 4em; /* Tamanho maior para o texto */
+    color: #f50057;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    margin: 0;
   }
   
-  #explosao .coracao-grande {
-    font-size: 5em;
+  .coracao-grande {
+    font-size: 6em; /* Tamanho maior para o coração */
+    margin-top: 20px;
   }
+  
+  @keyframes explosao {
+    0% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.5);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(2);
+      opacity: 0;
+    }
+  }
+  
   
   /* Animação de aparecer e desaparecer */
   @keyframes aparecer-desaparecer {
