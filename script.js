@@ -63,3 +63,19 @@ setInterval(calcularDiferenca, 1000);
   // Gera corações a cada 300ms
   setInterval(criarCoracoes, 300);
   
+// Adiciona evento de clique no botão
+document.getElementById('playButton').addEventListener('click', function() {
+  const videoContainer = document.getElementById('videoContainer');
+  const iframe = document.getElementById('youtubeVideo');
+  
+  if (videoContainer.style.display === "none") {
+    // Exibe o vídeo e inicia a reprodução
+    videoContainer.style.display = "block";
+    this.textContent = "Pausar Música"; // Altera o texto do botão
+  } else {
+    // Pausa o vídeo (o YouTube não tem um método direto para pausar, mas podemos esconder o vídeo)
+    iframe.src = iframe.src; // Isso irá parar o vídeo
+    videoContainer.style.display = "none"; // Esconde o vídeo
+    this.textContent = "Tocar Música"; // Restaura o texto original do botão
+  }
+});

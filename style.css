@@ -211,3 +211,24 @@
     }
   }
   
+  /* Estilos do botão */
+.play-button-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#playButton {
+  background-color: #7b1fa2;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.2em;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+#playButton:hover {
+  background-color: #6a1b9a;
+}
