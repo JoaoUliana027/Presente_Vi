@@ -53,9 +53,4 @@ function calcularDiferenca() {
   document.getElementById("meses").innerText = meses;
   document.getElementById("dias").innerText = dias;
   document.getElementById("horas").innerText = horas;
-  document.getElementById("minutos").innerText = minutos;
-  document.getElementById("segundos").innerText = segundos;
-}
-
-// Atualiza o contador a cada segundo
-setInterval(calcularDiferenca
+  document
