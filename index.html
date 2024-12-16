@@ -41,14 +41,27 @@
       color: #ff6188;
     }
 
-    /* Foto do casal */
-    #foto {
+    /* Container do carrossel */
+    .carrossel-container {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
       margin: 20px auto;
-      width: 80%;
-      max-width: 300px;
+      width: 90%;
+      max-width: 400px;
       border-radius: 15px;
       border: 3px solid #ff69b4;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Imagens no carrossel */
+    .carrossel-container img {
+      flex: 0 0 100%;
+      scroll-snap-align: center;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 15px;
     }
 
     /* Texto do contador */
@@ -143,8 +156,8 @@
         flex: 1 1 100px;
       }
 
-      #foto {
-        width: 90%;
+      .carrossel-container {
+        width: 95%;
       }
     }
   </style>
@@ -153,9 +166,13 @@
   <h1>Desde o Dia Especial 💖</h1>
   <p>Vi, você é uma pessoa muito especial pra mim. Desde o dia que te conheci, meus dias vêm se tornando mais felizes. Eu te amo muitooo, minha princesa. 💕</p>
   
-  <img id="foto" src="Foto_do_casal.jpg" alt="Foto do casal">
+  <!-- Carrossel de fotos -->
+  <div class="carrossel-container">
+    <img src="Foto1.jpg" alt="Foto do casal 1">
+    <img src="Foto2.jpg" alt="Foto do casal 2">
+  </div>
 
-  <div id="texto-tempo">Compartilhando momentos há:</div>
+  <div id="texto-tempo">Tempo que estamos juntos:</div>
 
   <div id="contador">
     <div class="tempo">
@@ -186,29 +203,23 @@
 
   <script>
     function calcularDiferenca() {
-      const dataInicial = new Date(2024, 10, 12); // 12 de novembro de 2024 (mês 10, pois começa em 0)
+      const dataInicial = new Date(2024, 10, 12); // 12 de novembro de 2024
       const agora = new Date();
 
-      // Calcula o tempo total em milissegundos
       const diferenca = agora - dataInicial;
-
-      // Converte para unidades
       const segundosTotais = Math.floor(diferenca / 1000);
       const minutosTotais = Math.floor(segundosTotais / 60);
       const horasTotais = Math.floor(minutosTotais / 60);
       const diasTotais = Math.floor(horasTotais / 24);
 
-      // Calcula anos, meses e dias restantes
       const anos = Math.floor(diasTotais / 365);
       const meses = Math.floor((diasTotais % 365) / 30);
       const dias = Math.floor((diasTotais % 365) % 30);
 
-      // Calcula horas, minutos e segundos restantes
       const horas = horasTotais % 24;
       const minutos = minutosTotais % 60;
       const segundos = segundosTotais % 60;
 
-      // Atualiza o HTML
       document.getElementById("anos").innerText = anos;
       document.getElementById("meses").innerText = meses;
       document.getElementById("dias").innerText = dias;
@@ -217,10 +228,8 @@
       document.getElementById("segundos").innerText = segundos;
     }
 
-    // Atualiza o contador a cada segundo
     setInterval(calcularDiferenca, 1000);
 
-    // Função para criar corações caindo
     function criarCoracoes() {
       const heart = document.createElement("div");
       heart.classList.add("heart");
@@ -228,7 +237,6 @@
       heart.style.animationDuration = Math.random() * 2 + 3 + "s";
       document.body.appendChild(heart);
 
-      // Remove o coração após a animação
       setTimeout(() => {
         heart.remove();
       }, 5000);
