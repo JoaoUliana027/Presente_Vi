@@ -8,7 +8,7 @@
   /* Corpo geral */
   body {
     font-family: 'Poppins', sans-serif;
-    background-color: #f3e5f5;
+    background: linear-gradient(to bottom, #6a1b9a, #f3e5f5);
     color: #7b1fa2;
     margin: 0;
     padding: 0;
@@ -30,24 +30,37 @@
     line-height: 1.6;
   }
   
-  /* Contêiner do timer */
-  .timer-title {
-    font-size: 1.5em;
-    margin: 20px 0;
-    color: #6a1b9a;
+  /* Timer */
+  .timer-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
   }
   
-  #timer {
-    font-size: 2em;
+  .timer-box {
+    width: 70px;
+    height: 70px;
+    background-color: #ffffff;
+    border: 2px solid #6a1b9a;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
     font-weight: bold;
+    color: #6a1b9a;
   }
   
   /* Carrossel */
   .carousel {
     width: 100%;
-    overflow: hidden;
-    position: relative;
+    max-width: 300px;
     margin: 20px auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 2px solid #6a1b9a;
   }
   
   .carousel-images {
@@ -57,9 +70,36 @@
   
   .carousel img {
     width: 100%;
-    max-width: 300px;
-    height: auto;
-    margin: 0 auto;
-    border-radius: 15px;
+    border-radius: 10px;
+  }
+  
+  .carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 1.5em;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+  }
+  
+  .carousel-button.prev {
+    left: 10px;
+  }
+  
+  .carousel-button.next {
+    right: 10px;
+  }
+  
+  .carousel-button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  
+  /* Link oculto */
+  #hidden-link {
+    display: none;
   }
   
