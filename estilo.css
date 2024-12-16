@@ -1,0 +1,85 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Corpo geral */
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f3e5f5;
+    color: #7b1fa2;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  
+  /* Título principal */
+  h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3em;
+    color: #6a1b9a;
+    margin: 20px 0;
+  }
+  
+  /* Texto central */
+  p {
+    margin: 10px 20px;
+    font-size: 1.2em;
+    line-height: 1.6;
+  }
+  
+  /* Contêiner do timer */
+  .timer-title {
+    font-size: 1.5em;
+    margin: 20px 0;
+    color: #6a1b9a;
+  }
+  
+  #timer {
+    font-size: 2em;
+    font-weight: bold;
+  }
+  
+  /* Carrossel */
+  .carousel {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin: 20px auto;
+  }
+  
+  .carousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .carousel img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 15px;
+  }
+  
+  /* Fotos Especiais */
+  .photo-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .photo {
+    max-width: 300px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .photo:hover {
+    transform: scale(1.05);
+  }
+  
