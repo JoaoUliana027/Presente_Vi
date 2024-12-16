@@ -22,26 +22,13 @@ function updateTimer() {
 
 setInterval(updateTimer, 1000);
 
-// Carrossel de imagens
-let currentSlide = 0;
-const slides = document.querySelectorAll('.carousel-images img');
-
-function updateCarousel() {
-  const offset = -currentSlide * 100;
-  document.querySelector('.carousel-images').style.transform = `translateX(${offset}%)`;
+// Função para rolar o carrossel
+function scrollCarousel(event) {
+  const carousel = document.querySelector('.carousel');
+  carousel.scrollLeft += event.deltaY;
 }
 
-function nextSlide() {
-  currentSlide = (currentSlide + 1) % slides.length;
-  updateCarousel();
-}
-
-function prevSlide() {
-  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-  updateCarousel();
-}
-
-// Navegação para a página especial
+// Redirecionamento para a página especial
 function goToSpecialPage() {
   window.location.href = 'fotos-especiais.html';
 }
